@@ -3,6 +3,9 @@ pipeline {
 
     stages {
         stage('Build') {
+          environment {
+            SECRET_FILE_ID = credentials('secret-file')
+       }
             steps {
                 echo 'Building..'
                 echo "####DISPLAYING SECRET_FILE_ID####"
