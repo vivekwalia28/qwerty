@@ -6,9 +6,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                withCredentials([usernamePassword(credentialsId: 'sec', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                withCredentials([usernamePassword(credentialsId: 'sec', passwordVariable: 'password', usernameVariable: 'username')]) {
 			sh '''
-			echo $user
+			echo $user>>
 			echo $pass
 			sh '''
 }
