@@ -3,13 +3,14 @@ pipeline {
 
     stages {
         stage('Build') {
-          environment {
-            SECRET_FILE_ID = credentials('secret-file')
-       }
             steps {
                 echo 'Building..'
-                echo "####DISPLAYING SECRET_FILE_ID####"
-	              echo "Global property file: ${SECRET_FILE_ID}"
+                withCredentials([usernamePassword(credentialsId: 'sec', passwordVariable: 'pass', usernameVariable: 'user')]) {
+			sh '''
+			echo $user
+			echo $pass
+			sh '''
+}
             }
         }
         stage('Test') {
