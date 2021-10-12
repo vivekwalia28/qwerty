@@ -1,3 +1,4 @@
+properties([parameters([string(defaultValue: '9', name: 'storeGroup'), string(defaultValue: '38100', name: 'dms'), choice(choices: ['preview'], name: 'environment')])])
 pipeline {
     agent any
 
