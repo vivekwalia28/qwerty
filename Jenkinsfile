@@ -5,25 +5,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
                 withCredentials([usernamePassword(credentialsId: 'sec', passwordVariable: 'password', usernameVariable: 'username')]) {
 			sh '''
-			echo $user >> test.txt
-			echo $pass >> test.txt
-			cat test.txt
+			echo "Hello"
 			sh '''
 }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+        
     }
 }
